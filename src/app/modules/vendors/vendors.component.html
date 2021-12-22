@@ -1,0 +1,106 @@
+<section class="content-header">
+  <app-header></app-header>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <!-- <app-table></app-table> -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              DataTable with minimal features & hover style
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body p-0">
+            <!-- <th>Vendor Code</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Fax</th>
+                  <th>Tel</th>
+                  <th>PND</th>
+                  <th>Tax ID</th>
+                  <th>VAT Register No</th>
+                  <th>TaxID Vendor1</th>
+                  <th>TaxID Vendor2</th>
+                  <th>TaxID Vendor3</th> -->
+            <!-- <div *ngIf="dataSource"> -->
+            
+            <mat-table [dataSource]="dataSource">
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns" (click)="showRow(row)"></mat-row>
+
+              <ng-container matColumnDef="Vendor Code">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Vendor Code</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{
+                  row.vendorCode
+                  }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.name }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Address">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.address }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Fax">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Fax</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.fax }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Tel">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Tel</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.tel }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="PND">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>PND</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.pnd }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Tax ID">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Tax ID</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.taxId }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="VAT Register No">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>VAT Register No</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.vatRegisNo }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="TaxId Vendor1">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>TaxId Vendor1</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.taxIdVendor1 }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="TaxId Vendor2">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>TaxId Vendor2</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.taxIdVendor2 }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="TaxId Vendor3">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>TaxId Vendor3</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row.taxIdVendor3 }}</mat-cell>
+              </ng-container>
+            </mat-table>
+
+            <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+            </mat-paginator>
+            <!-- </div> -->
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix"></div>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>
